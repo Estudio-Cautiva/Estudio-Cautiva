@@ -229,7 +229,16 @@ h3 {
       padding: 15px;
     }
 <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative&display=swap" rel="stylesheet">
-  </style><style>
+  
+/* Estilo para subcategoría seleccionada */
+.subcategorias li.activo-subitem {
+  color: #EBC372;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+</style><style>
 .barra-atencion {
   background-color: #F4E7DB;
   text-align: center;
@@ -783,5 +792,60 @@ h3 {
     popup.style.display = 'none';
   }
 </script>
+
+<script>
+  // FUNCIONALIDAD ACORDEÓN (solo uno abierto)
+  function toggleSubcategorias(id) {
+    const todas = document.querySelectorAll('.subcategorias');
+
+    todas.forEach(section => {
+      if (section.id === id) {
+        const yaVisible = section.style.display === 'block';
+        section.style.display = yaVisible ? 'none' : 'block';
+      } else {
+        section.style.display = 'none';
+      }
+    });
+  }
+
+  // EFECTO AL SELECCIONAR UNA SUBCATEGORÍA
+  document.addEventListener("DOMContentLoaded", () => {
+    const subItems = document.querySelectorAll('.subcategorias li');
+
+    subItems.forEach(item => {
+      item.addEventListener('click', () => {
+        subItems.forEach(el => el.classList.remove('activo-subitem'));
+        item.classList.add('activo-subitem');
+      });
+    });
+  });
+
+  // FORMULARIO
+  const formulario = document.getElementById('formulario-cautiva');
+  const popup = document.getElementById('popup-gracias');
+
+  formulario.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const formData = new FormData(formulario);
+
+    try {
+      await fetch(formulario.action, {
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      formulario.reset();
+      popup.style.display = 'flex';
+    } catch (error) {
+      alert("Hubo un error al enviar el formulario. Intenta más tarde.");
+    }
+  });
+
+  function cerrarPopup() {
+    popup.style.display = 'none';
+  }
+</script>
+
 </body>
 </html>
