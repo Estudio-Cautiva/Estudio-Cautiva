@@ -27,7 +27,7 @@ body {
 
 .estudio-texto {
   font-family: 'Darrel Allura Personal Use', cursive;
-  font-size: 46pt;
+  font-size: clamp(24pt, 6vw, 46pt);
   color: #4E3B2C;
   text-shadow: 0 0 0.5pt #4E3B2C;
   letter-spacing: 0.10em;  
@@ -44,16 +44,16 @@ body {
 }
 
 .titulo-cautiva .letra-grande {
-  font-size: 110pt;
+  font-size: clamp(60pt, 12vw, 110pt);
 }
 
 .titulo-cautiva .letra-media {
-  font-size: 100pt;
+  font-size: clamp(50pt, 10vw, 100pt);
 }
 
 .subtexto-personalizado {
   font-family: 'Cinzel Decorative', cursive;
-  font-size: 20pt;
+  font-size: clamp(14pt, 4vw, 20pt);
   color: #4E3B2C;
   text-shadow: 0 0 0.5pt #4E3B2C;
   margin-top: -5px; /* Ajuste fino */
@@ -148,7 +148,7 @@ body {
 
 .subtexto-personalizado {
   font-family: 'Cinzel Decorative', cursive;
-  font-size: 20pt;
+  font-size: clamp(14pt, 4vw, 20pt);
   color: #4E3B2C;
   text-shadow: 0 0 0.5pt #4E3B2C;
   margin-top: 15px;
@@ -236,39 +236,6 @@ h3 {
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
-}
-
-
-/* ==== RESPONSIVE MINIMALISTA ==== */
-@media (max-width: 768px) {
-  html, body {
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
-
-  .logo-identidad {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
-
-  .card-grid, .servicio-grid {
-    grid-template-columns: 1fr;
-  }
-
-  nav {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .whatsapp-button {
-    font-size: 14px;
-    padding: 10px 12px;
-  }
-
-  .popup-content {
-    width: 90%;
-  }
 }
 
 </style><style>
