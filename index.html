@@ -583,11 +583,6 @@ h3 {
 </section>
 <section id="servicios">
 <div class="titulo-seccion">Servicios</div>
-<script>
-  function toggleSubcategorias(id) {
-    const section = document.getElementById(id);
-    section.style.display = section.style.display === 'none' ? 'block' : 'none';
-  }
 </script>
 <div class="servicio-grid">
 <div class="servicio-card">
@@ -724,8 +719,6 @@ h3 {
   <textarea id="mensaje" name="message" rows="4" required></textarea>
 
   <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="#popup-gracias">
-
   <button type="submit">Enviar</button>
 </form>
 
@@ -757,11 +750,12 @@ h3 {
 </a>
 
 <script>
+  <script>
   function toggleSubcategorias(id) {
     const section = document.getElementById(id);
     section.style.display = section.style.display === 'none' ? 'block' : 'none';
   }
-<script>
+
   const formulario = document.getElementById('formulario-cautiva');
   const popup = document.getElementById('popup-gracias');
 
