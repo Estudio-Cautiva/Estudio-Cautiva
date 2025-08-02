@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cautiva</title>
+<style>
+/* Tipografía más moderna */
+body {
+  background-color: #F4E7DB;
+  font-family: 'Segoe UI', sans-serif;
+  color: #4E3B2C;
+  margin: 0;
+  padding: 0;
+}
+
+.barra-identidad {
+  background-color: #F4E7DB;
+  text-align: center;
+  padding: 15px 10px;
+  position: relative;
+  color: #4E3B2C;
+  line-height: 1;
+}
+
+.estudio-texto {
+  font-family: 'Darrel Allura Personal Use', cursive;
+  font-size: 46pt;
+  color: #4E3B2C;
+  text-shadow: 0 0 0.5pt #4E3B2C;
+  letter-spacing: 0.10em;  
+  margin-bottom: -5px;
+  margin-top: 0;
+}
+
+.titulo-cautiva {
+  font-family: 'Cinzel', serif;
+  color: #4E3B2C;
+  display: inline-block;
+  line-height: 1;
+  margin-bottom: 5px; /* Acerca a Atención personalizada */
+}
+
+.titulo-cautiva .letra-grande {
+  font-size: 110pt;
+}
+
+.titulo-cautiva .letra-media {
+  font-size: 100pt;
+}
+
+.subtexto-personalizado {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 20pt;
+  color: #4E3B2C;
+  text-shadow: 0 0 0.5pt #4E3B2C;
+  margin-top: -5px; /* Ajuste fino */
+}
+
+.hover-cautiva {
+  display: inline-block;
+  transition: transform 0.4s ease;
+  cursor: default;
+}
+
+.hover-cautiva:hover {
+  transform: scale(1.06) rotate(-1deg);
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.barra-identidad {
+  background-color: #F4E7DB;
+  text-align: center;
+  padding: 15px 10px;
+  color: #4E3B2C;
+  line-height: 1;
+}
+
+.bloque-superior {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -25px;
+  opacity: 0;
+  animation: aparecer 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+
+.logo-identidad {
+  width: 700px;  /* ajusta si lo ves muy grande o pequeño */
+  height: center;
+  margin-bottom: -30px;
+}
+
+.Estudio-texto {
+  font-family: 'Darrel Allura Personal Use', cursive;
+  font-size: 46pt;
+  color: #4E3B2C;
+  text-shadow: 0 0 0.5pt #4E3B2C;
+  letter-spacing: 0.10em;
+  margin: 0;
+}
+
+.titulo-cautiva {
+  font-family: 'Cinzel', serif;
+  color: #4E3B2C;
+  display: inline-block;
+  margin-bottom: -10px;
+  white-space: nowrap;
+}
+
+.titulo-cautiva span {
+  opacity: 0;
+  display: inline-block;
+}
+
+.ca {
+  font-size: 110pt;
+  animation: aparecer 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+.uti {
+  font-size: 100pt;
+  animation: aparecer 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+.va {
+  font-size: 110pt;
+  animation: aparecer 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+.subtexto-personalizado {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 20pt;
+  color: #4E3B2C;
+  text-shadow: 0 0 0.5pt #4E3B2C;
+  margin-top: 15px;
+  opacity: 0;
+  animation: aparecer 0.8s ease-out forwards;
+  animation-delay: 0.9s;
+}
+
+h2 {
+  border-bottom: 2px solid #EBC372;
+}
+
+h3 {
+  color: #EBC372;
+  margin-top: 30px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+    body {
+      background-color: #F4E7DB;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 20;
+      padding: 0;
+      color: #4E3B2C;
+    }
+
+    header {
+      background-color: #EBC372;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    nav {
+      background-color: #4E3B2C;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    footer {
+      background-color: #4E3B2C;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative&display=swap" rel="stylesheet">
+  </style><style>
+.barra-atencion {
+  background-color: #F4E7DB;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.barra-atencion span {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 20px;
+  color: #4E3B2C;
+  text-shadow: 0 0 0.5px #4E3B2C;
+  letter-spacing: 1px;
+}
+
+  .servicio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .servicio-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: 'Cinzel', serif;
+    color: #4E3B2C;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0;
+  }
+
+  .servicio-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    background-color: #fff;
+  }
+
+  .servicio-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .btn-ver-mas {
+    background-color: #EBC372;
+    color: #FFFFFF;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-family: 'Cinzel Decorative', cursive;
+    cursor: pointer;
+    font-size: 14px;
+    width: fit-content;
+    align-self: center;
+  }
+
+  .subcategorias {
+    padding-top: 10px;
+    display: none;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    color: #4E3B2C;
+  }
+
+  .subcategorias ul {
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  .subcategorias li {
+    margin: 5px 0;
+  }
+
+  .whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    font-weight: bold;
+    padding: 12px 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: background-color 0.3s;
+  }
+
+  .whatsapp-button:hover {
+    background-color: #1ebe5d;
+  }
+
+  .titulo-seccion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 20pt;
+    margin: 40px 0 20px;
+    color: #4E3B2C;
+    vertical-align: middle;
+    line-height: 1;
+
+  }
+
+  .titulo-seccion::before,
+  .titulo-seccion::after {
+    content: "";
+    flex: 1;
+    border-bottom: 2px solid #EBC372;
+    margin: 0 20px;
+
+  }
+.aviso-agenda-combinado {
+  background-color: #FDF8F2; 
+  color: #4E3B2C;
+  padding: 15px 25px;
+  border-radius: 15px;
+  font-family: 'Cinzel', cursive;
+  font-size: 18px;
+  text-align: center;
+  margin: 40px auto 20px;
+  max-width: 750px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1)
+}
+.contacto-contenedor {
+  background-color: #FDF8F2;
+  padding: 40px 20px;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: 40px auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.titulo-seccion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 26pt;
+  color: #4E3B2C;
+  margin-bottom: 30px;
+}
+
+.titulo-seccion::before,
+.titulo-seccion::after {
+  content: "";
+  flex: 1;
+  border-bottom: 2px solid #EBC372;
+  margin: 0 20px;
+}
+
+.intro-contacto {
+  text-align: center;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 17px;
+  color: #4E3B2C;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formulario-contacto label {
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #4E3B2C;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+  padding: 10px;
+  border: 1px solid #EBC372;
+  border-radius: 8px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+}
+
+.formulario-contacto button {
+  background-color: #EBC372;
+  color: #4E3B2C;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formulario-contacto button:hover {
+  background-color: #d3a953;
+}
+#formulario-cautiva {
+  max-width: 500px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#formulario-cautiva label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+#formulario-cautiva input,
+#formulario-cautiva textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#formulario-cautiva button {
+  background-color: #EBC372;
+  color: #4E3B2C;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* POPUP */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #fffbea;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.popup-content .resaltado-cautiva {
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #4E3B2C;
+}
+
+.logo-popup {
+  max-width: 180px;
+  margin: 0 auto 20px auto;
+  display: block;
+  animation: zoomIn 0.7s ease-in-out;
+}
+
+.mensaje-popup {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cerrar-popup {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #4E3B2C;
+}
+
+.efecto-brillo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 244, 200, 0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: destellos 3s linear infinite;
+  z-index: -1;
+  border-radius: 20px;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes destellos {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+</style></head>
+
+<body>
+<div class="barra-identidad">
+<div class="bloque-superior">
+<img alt="Logo Cautiva" class="logo-identidad" src="logo-cautiva.png"/>
+<div class="estudio-texto">Estudio</div>
+</div>
+<div class="titulo-cautiva hover-cautiva">
+<span class="letra-grande ca">CA</span>
+<span class="letra-media uti">UTI</span>
+<span class="letra-grande va">VA</span>
+</div>
+<div class="subtexto-personalizado">Atención personalizada</div>
+</div>
+
+</section>
+<section id="servicios">
+<div class="titulo-seccion">Servicios</div>
+<script>
+  function toggleSubcategorias(id) {
+    const section = document.getElementById(id);
+    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
+<div class="servicio-grid">
+<div class="servicio-card">
+<img alt="Extensiones de pestañas" src="Extensiones de pestañas.png"/>
+<h3>Extensiones de pestañas</h3>
+<button class="btn-ver-mas" onclick="toggleSubcategorias('sub1')">Ver más ▼</button>
+<div class="subcategorias" id="sub1">
+<ul>
+<li>Pelo a pelo</li>
+<li>Efecto Natural</li>
+<li>Efecto Pestañina</li>
+<li>Fibra tecnológica</li>
+</ul>
+</div>
+</div>
+<div class="servicio-card">
+<img alt="Ondulado de pestañas" src="Ondulado de pestañas.png"/>
+<h3>Ondulado de pestañas</h3>
+<button class="btn-ver-mas" onclick="toggleSubcategorias('sub2')">Ver más ▼</button>
+<div class="subcategorias" id="sub2">
+<ul>
+<li>Lifting + Efecto Rímel</li>
+</ul>
+</div>
+</div>
+<div class="servicio-card">
+<img alt="Cejas" src="cejas.png"/>
+<h3>Cejas</h3>
+<button class="btn-ver-mas" onclick="toggleSubcategorias('sub3')">Ver más ▼</button>
+<div class="subcategorias" id="sub3">
+<ul>
+<li>Depilación (hilo y/o cera)</li>
+<li>Depilación + Diseño</li>
+<li>Diseño + Pigmento</li>
+<li>Laminado</li>
+<li>Sombreado</li>
+<li>Combinaciones</li>
+</ul>
+</div>
+</div>
+<div class="servicio-card">
+<img alt="Depilación facial" src="Depilación facial.png"/>
+<h3>Depilación facial</h3>
+<button class="btn-ver-mas" onclick="toggleSubcategorias('sub4')">Ver más ▼</button>
+<div class="subcategorias" id="sub4">
+<ul>
+<li>Frente</li>
+<li>Mejillas</li>
+<li>Patillas</li>
+<li>Labio superior</li>
+<li>Mentón</li>
+<li>Nariz</li>
+</ul>
+</div>
+</div>
+<div class="servicio-card">
+<img alt="Depilación corporal" src="Depilación corporal.png"/>
+<h3>Depilación corporal</h3>
+<button class="btn-ver-mas" onclick="toggleSubcategorias('sub5')">Ver más ▼</button>
+<div class="subcategorias" id="sub5">
+<ul>
+<li>Axilas</li>
+<li>Bikini parcial/completo</li>
+<li>Pierna media/completa</li>
+</ul>
+</div>
+</div>
+<div class="servicio-card">
+<img alt="Limpieza facial" src="Limpieza facial.png"/>
+<h3>Limpieza facial</h3>
+<button class="btn-ver-mas" onclick="toggleSubcategorias('sub6')">Ver más ▼</button>
+<div class="subcategorias" id="sub6">
+<ul>
+<li>Limpieza básica</li>
+<li>Limpieza profunda</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="aviso-agenda-combinado">
+  📅 Todos los servicios se realizan únicamente bajo agenda previa.<div>¡Agenda tu cita con anticipación!
+</div>
+</section>
+
+<section id="productos">
+<div class="titulo-seccion">Productos</div>
+<div class="card-grid">
+<div class="card">
+<h3>Gel fijador</h3>
+<p>Ideal para cejas y pestañas. Fijación duradera y natural.</p>
+</div>
+<div class="card">
+<h3>Cremas hidratantes</h3>
+<p>Hidratación profunda para rostro y cuerpo. Uso diario.</p>
+</div>
+<div class="card">
+<h3>Tintas</h3>
+<p>Para cejas y labios. Colores suaves y duraderos.</p>
+</div>
+<div class="card">
+<h3>Splash</h3>
+<p>Refresca tu piel con fragancias suaves. Lleva tu aroma contigo.</p>
+</div>
+<div class="card">
+<h3>Producto hidratación de pestañas</h3>
+<p>Nutrientes que fortalecen y revitalizan tus pestañas.</p>
+</div>
+<div class="card">
+<h3>Producto hidratación de cejas</h3>
+<p>Promueve el crecimiento y definición de las cejas.</p>
+</div>
+</div>
+</section>
+<section id="Contáctanos">
+  <div class="titulo-seccion">Contáctanos</div>
+
+  <p class="intro-contacto" style="font-family: 'Segoe UI', sans-serif;">
+    ✨ Elige tu servicio ideal y déjanos tus datos. <br>
+    💌 Nos pondremos en contacto para coordinar tu cita. <br>
+    🌸 ¡Porque tu bienestar es nuestra prioridad!
+  </p>
+
+  <form id="formulario-cautiva" action="https://formsubmit.co/agenda.cautiva@gmail.com" method="POST">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="name" required>
+
+    <label for="whatsapp">WhatsApp:</label>
+    <input type="tel" id="whatsapp" name="email" required>
+
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="message" rows="4" required></textarea>
+
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="#popup-gracias">
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <!-- POPUP -->
+  <div class="popup" id="popup-gracias">
+    <div class="efecto-brillo"></div>
+    <div class="popup-content">
+      <button class="cerrar-popup" onclick="cerrarPopup()">×</button>
+      <img src="logo-cautiva.png" alt="Logo Cautiva" class="logo-popup">
+      <p class="mensaje-popup">
+        ✅ ¡Gracias! Te contactaremos pronto.<br><br>
+        ✨ Mientras tanto, recuerda: tu mirada <span class="resaltado-cautiva">cautiva</span> el mundo.
+      </p>
+    </div>
+  </div>
+</section>
+<footer>
+    © 2025 Cautiva - Todos los derechos reservados.
+  </footer>
+<!-- Botón flotante de WhatsApp -->
+<a class="whatsapp-button" href="https://wa.me/573025683662?text=Hola%2C%20quiero%20agendar%20una%20cita%20con%20Cautiva" target="_blank" title="Escríbenos por WhatsApp">
+  💬 Contáctanos
+</a>
+
+
+<a class="whatsapp-button" href="https://wa.me/573025683662?text=Hola%2C%20quiero%20agendar%20una%20cita%20con%20Cautiva" target="_blank" title="Escríbenos por WhatsApp">
+<img alt="WhatsApp" src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" style="vertical-align: middle; width: 24px; height: 24px; margin-right: 8px;"/>
+  Agenda tu cita
+</a>
+
+<script>
+  function toggleSubcategorias(id) {
+    const section = document.getElementById(id);
+    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+  }
+<script>
+  const formulario = document.getElementById('formulario-cautiva');
+  const popup = document.getElementById('popup-gracias');
+
+  formulario.addEventListener('submit', function(event) {
+    event.preventDefault();
+    popup.style.display = 'flex';
+    formulario.reset();
+  });
+
+  function cerrarPopup() {
+    popup.style.display = 'none';
+  }
+</script></body>
+</html>
