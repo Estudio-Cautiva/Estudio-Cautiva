@@ -711,21 +711,23 @@ h3 {
   </p>
 
   <form id="formulario-cautiva" action="https://formsubmit.co/agenda.cautiva@gmail.com" method="POST">
-<input type="hidden" name="email" value="whatsapp@cautiva.fake">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="name" required>
+  <!-- Campo oculto solo para Formsubmit -->
+  <input type="hidden" name="email" value="no-responder@cautiva.co">
 
-    <label for="whatsapp">WhatsApp:</label>
-    <input type="tel" id="whatsapp" name="email" required>
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="name" required>
 
-    <label for="mensaje">Mensaje:</label>
-    <textarea id="mensaje" name="message" rows="4" required></textarea>
+  <label for="whatsapp">WhatsApp:</label>
+  <input type="tel" id="whatsapp" name="whatsapp" required>
 
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="#popup-gracias">
+  <label for="mensaje">Mensaje:</label>
+  <textarea id="mensaje" name="message" rows="4" required></textarea>
 
-    <button type="submit">Enviar</button>
-  </form>
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="#popup-gracias">
+
+  <button type="submit">Enviar</button>
+</form>
 
   <!-- POPUP -->
   <div class="popup" id="popup-gracias">
@@ -763,14 +765,29 @@ h3 {
   const formulario = document.getElementById('formulario-cautiva');
   const popup = document.getElementById('popup-gracias');
 
-  formulario.addEventListener('submit', function(event) {
+  formulario.addEventListener('submit', async function(event) {
     event.preventDefault();
-    popup.style.display = 'flex';
-    formulario.reset();
+
+    const formData = new FormData(formulario);
+
+    try {
+      await fetch(formulario.action, {
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      formulario.reset();
+      popup.style.display = 'flex';
+
+    } catch (error) {
+      alert("Hubo un error al enviar el formulario. Intenta más tarde.");
+    }
   });
 
   function cerrarPopup() {
     popup.style.display = 'none';
   }
-</script></body>
+</script>
+</body>
 </html>
