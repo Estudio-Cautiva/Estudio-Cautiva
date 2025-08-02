@@ -239,16 +239,22 @@ h3 {
 }
 
 
-/* ==== MEDIA QUERIES PARA RESPONSIVE DESIGN ==== */
-
+/* ==== RESPONSIVE REFINADO (≥360px) ==== */
 @media (max-width: 768px) {
   body {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .logo-identidad {
-    width: 90%;
+    width: 85%;
+    max-width: 350px;
     height: auto;
+    margin-bottom: -15px;
+  }
+
+  .estudio-texto, .Estudio-texto {
+    font-size: 28pt;
+    text-align: center;
   }
 
   .titulo-cautiva .letra-grande {
@@ -261,53 +267,66 @@ h3 {
 
   .subtexto-personalizado {
     font-size: 16pt;
+    margin-top: 10px;
+    text-align: center;
   }
 
-  .card, .servicio-card {
-    padding: 12px;
-  }
-
-  .card-grid, .servicio-grid {
+  .servicio-grid, .card-grid {
     grid-template-columns: 1fr;
   }
 
-  header h1 {
-    font-size: 1.8em;
+  .servicio-card, .card {
+    padding: 15px;
+    font-size: 14px;
   }
 
-  nav {
-    flex-direction: column;
-    gap: 10px;
+  .servicio-card h3 {
+    font-size: 16px;
   }
 
-  nav a {
-    margin: 5px 0;
+  .btn-ver-mas {
+    font-size: 13px;
+    padding: 6px 10px;
+    margin-top: 10px;
   }
 
   .titulo-seccion {
-    font-size: 18pt;
+    font-size: 20pt;
+    text-align: center;
   }
 
   .formulario-contacto,
   #formulario-cautiva {
-    padding: 15px;
+    padding: 20px;
   }
 
-  .popup-content {
-    width: 90%;
-    font-size: 16px;
+  nav {
+    flex-direction: column;
+    padding: 10px 0;
+    gap: 5px;
+  }
+
+  nav a {
+    margin: 4px 0;
+    font-size: 14px;
   }
 
   .whatsapp-button {
     bottom: 15px;
     right: 15px;
-    padding: 10px 14px;
+    padding: 10px 16px;
     font-size: 13px;
   }
 
   .whatsapp-button img {
     width: 20px;
     height: 20px;
+  }
+
+  .popup-content {
+    padding: 20px;
+    font-size: 16px;
+    max-width: 90%;
   }
 }
 
