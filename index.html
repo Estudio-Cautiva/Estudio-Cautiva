@@ -438,7 +438,7 @@ h3 {
   background-color: #d3a953;
 }
 #formulario-cautiva {
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
   background: white;
   padding: 20px;
@@ -454,7 +454,7 @@ h3 {
 
 #formulario-cautiva input,
 #formulario-cautiva textarea {
-  width: 100%;
+  width: 95%;
   padding: 8px;
   margin-bottom: 15px;
   border-radius: 8px;
@@ -470,6 +470,11 @@ h3 {
   font-weight: bold;
   border-radius: 10px;
   cursor: pointer;
+}
+#formulario-cautiva input:focus,
+#formulario-cautiva textarea:focus {
+  border: 2px solid #EBC372;
+  outline: none;
 }
 
 /* POPUP */
@@ -706,6 +711,7 @@ h3 {
   </p>
 
   <form id="formulario-cautiva" action="https://formsubmit.co/agenda.cautiva@gmail.com" method="POST">
+<input type="hidden" name="email" value="whatsapp@cautiva.fake">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="name" required>
 
