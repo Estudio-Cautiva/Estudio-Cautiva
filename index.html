@@ -4,8 +4,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=1200">
 <title>Cautiva</title>
 <style>
 /* Tipografía más moderna */
@@ -672,8 +671,57 @@ h3 {
   margin: 6px 0;
   line-height: 1.5;
 }
-</style></head>
+/* Contenedor del efecto */
+.efecto-brillo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; /* debajo del contenido */
+}
 
+/* Estrellas */
+.estrella {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: parpadeo 3s infinite ease-in-out alternate;
+  box-shadow: 0 0 8px #fff; /* más brillo */
+}
+
+/* Animación de parpadeo */
+@keyframes parpadeo {
+  0% { opacity: 0.3; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.4; transform: scale(1); }
+}
+
+/* Ajuste móvil */
+@media (max-width: 600px) {
+  .estrella {
+    width: 5px !important;
+    height: 5px !important;
+    box-shadow: 0 0 12px #fff;
+    opacity: 1;
+  }
+}
+</style></head>
+<script>
+  document.querySelectorAll('.efecto-brillo').forEach(contenedor => {
+    for (let i = 0; i < 25; i++) { // número de estrellas
+      const estrella = document.createElement('div');
+      estrella.classList.add('estrella');
+      estrella.style.width = estrella.style.height = Math.random() * 3 + 2 + 'px';
+      estrella.style.top = Math.random() * 100 + '%';
+      estrella.style.left = Math.random() * 100 + '%';
+      estrella.style.animationDuration = (2 + Math.random() * 3) + 's';
+      contenedor.appendChild(estrella);
+    }
+  });
+</script>
 <body>
 <div class="bloque-superior">
 
