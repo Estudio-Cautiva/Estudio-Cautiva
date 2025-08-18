@@ -291,7 +291,17 @@ h3 {
     margin: 10px 0;
     text-align: center;
   }
+@keyframes latido {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.05); }
+  50%  { transform: scale(1); }
+  75%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
 
+.servicio-card img {
+  animation: latido 4s infinite ease-in-out;
+}
   .btn-ver-mas {
     background-color: #EBC372;
     color: #FFFFFF;
@@ -322,24 +332,64 @@ h3 {
     margin: 5px 0;
   }
 
-  .whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: white;
-    font-weight: bold;
-    padding: 12px 16px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    z-index: 1000;
-    transition: background-color 0.3s;
-  }
+  /* ✅ Botón WhatsApp estilo Cautiva */
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
 
-  .whatsapp-button:hover {
-    background-color: #1ebe5d;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #EBC372;     /* dorado */
+  color: #2B1D13;                /* marrón */
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+  gap: 10px;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+  animation: latido 2.2s ease-in-out infinite; /* pulso suave */
+}
+
+.whatsapp-button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.22);
+  opacity: 0.95;
+}
+
+/* Tamaño del ícono original */
+.icono-whatsapp {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+/* Pulso suave (mismo estilo de “corazón” que usas) */
+@keyframes latido {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+}
+
+/* Ajuste móvil: un poco más grande para dedo */
+@media (max-width: 600px) {
+  .whatsapp-button {
+    font-size: 15px;
+    padding: 12px 20px;
+    bottom: 16px;
+    right: 16px;
   }
+  .icono-whatsapp {
+    width: 20px;
+    height: 20px;
+  }
+}
 
   .titulo-seccion {
     display: flex;
@@ -401,6 +451,15 @@ h3 {
   flex: 1;
   border-bottom: 2px solid #EBC372;
   margin: 0 20px;
+}
+.aviso-clic {
+  text-align: center;
+  font-size: 15px;
+  color: #4E3B2C;
+  margin-top: -30px;
+  margin-bottom: 15px;
+  font-family: 'Segoe UI', sans-serif;
+  font-style: italic;
 }
 
 .intro-contacto {
@@ -561,7 +620,29 @@ h3 {
   opacity: 0;
   animation: aparecer 0.8s ease-out forwards;
   animation-delay: 0.6s;
+}
+/* ✨ Animación de brillo para el eslogan */
+.brillo-eslogan {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    #4E3B2C 0%,
+    #EBC372 50%,
+    #4E3B2C 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
+}
 
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
 @keyframes zoomIn {
   from {
     transform: scale(0.8);
@@ -580,6 +661,15 @@ h3 {
   100% {
     background-position: 40px 40px;
   }
+}
+.cuidados-texto {
+  text-align: left;
+  margin: 15px 0;
+}
+
+.cuidados-texto p {
+  margin: 6px 0;
+  line-height: 1.5;
 }
 </style></head>
 
@@ -602,81 +692,105 @@ h3 {
 </section>
 <section id="servicios">
 <div class="titulo-seccion">Servicios</div>
+<p class="aviso-clic">📌 Toca la imagen para ver los cuidados</p>
 </script>
 <div class="servicio-grid">
 <div class="servicio-card">
-<img alt="Extensiones de pestañas" src="Extensiones de pestañas.png"/>
-<h3>Extensiones de pestañas</h3>
+<img alt="Extensiones de pestañas" 
+     src="Extensiones de pestañas.png" 
+     class="img-servicio" 
+     data-popup="popup-extensiones"/>
+<h3>Extensiones Pelo a Pelo</h3>
 <button class="btn-ver-mas" onclick="toggleSubcategorias('sub1')">Ver más ▼</button>
 <div class="subcategorias" id="sub1">
 <ul>
-<li>Pelo a pelo</li>
-<li>Efecto Natural</li>
-<li>Efecto Pestañina</li>
-<li>Fibra tecnológica</li>
+<li>Efecto Natural → mirada sutil y ligera — $80.000</li>
+<li>Efecto Pestañina → más definidas, como con rímel — $80.000</li>
+<li>Hawaiano  → volumen delicado y elegante — $100.000</li>
+<li>Volumen 3D → más densidad y dramatismo — $120.000</li>
+<li>Volumen 4D → máxima intensidad y efecto glam — $120.000</li>
+<li>Toque de color — $5.000</li>
 </ul>
 </div>
 </div>
 <div class="servicio-card">
-<img alt="Ondulado de pestañas" src="Ondulado de pestañas.png"/>
+<img alt="Ondulado de pestañas" 
+     src="Ondulado de pestañas.png" 
+     class="img-servicio" 
+     data-popup="popup-ondulado"/>
 <h3>Ondulado de pestañas</h3>
 <button class="btn-ver-mas" onclick="toggleSubcategorias('sub2')">Ver más ▼</button>
 <div class="subcategorias" id="sub2">
 <ul>
-<li>Lifting + Efecto Rímel</li>
+<li>Tratamiento 100% natural que eleva, curva y da efecto rímel a tus pestañas sin extensiones — $70.000</li>
 </ul>
 </div>
 </div>
 <div class="servicio-card">
-<img alt="Cejas" src="cejas.png"/>
-<h3>Cejas</h3>
+    <img alt="Cejas" 
+         src="cejas.png" 
+         class="img-servicio" 
+         data-popup="popup-cejas"/>
+<h3>Cejas (cera o hilo)</h3>
 <button class="btn-ver-mas" onclick="toggleSubcategorias('sub3')">Ver más ▼</button>
 <div class="subcategorias" id="sub3">
 <ul>
-<li>Depilación (hilo y/o cera)</li>
-<li>Depilación + Diseño</li>
-<li>Diseño + Pigmento</li>
-<li>Laminado</li>
-<li>Sombreado</li>
-<li>Combinaciones</li>
+<li>Depilación sin diseño — $15.000</li>
+<li>Depilación con diseño — $30.000</li>
+<li>Diseño + Henna — $40.000</li>
+<li>Laminado + Diseño — $50.000</li>
+<li>Laminado + Diseño + Henna — $60.000</li>
+<li>Laminado sin depilación — $30.000</li>
 </ul>
 </div>
 </div>
-<div class="servicio-card">
-<img alt="Depilación facial" src="Depilación facial.png"/>
-<h3>Depilación facial</h3>
+ <div class="servicio-card">
+    <img alt="Depilación facial" 
+         src="Depilación facial.png" 
+         class="img-servicio" 
+         data-popup="popup-facial"/>
+<h3>Depilación facial (cera o hilo)</h3>
 <button class="btn-ver-mas" onclick="toggleSubcategorias('sub4')">Ver más ▼</button>
 <div class="subcategorias" id="sub4">
 <ul>
-<li>Frente</li>
-<li>Mejillas</li>
-<li>Patillas</li>
-<li>Labio superior</li>
-<li>Mentón</li>
-<li>Nariz</li>
+<li>Frente — $10.000</li>
+<li>Mejillas — $5.000</li>
+<li>Labio superior — $10.000</li>
+<li>Mentón — $5.000</li>
+<li>Nariz — $5.000</li>
+<li>Cara completa (sin cejas) — $30.000</li>
 </ul>
 </div>
 </div>
-<div class="servicio-card">
-<img alt="Depilación corporal" src="Depilación corporal.png"/>
-<h3>Depilación corporal</h3>
+ <div class="servicio-card">
+    <img alt="Depilación corporal" 
+         src="Depilación corporal.png" 
+         class="img-servicio" 
+         data-popup="popup-corporal"/>
+<h3>Depilación corporal (cera)</h3>
 <button class="btn-ver-mas" onclick="toggleSubcategorias('sub5')">Ver más ▼</button>
 <div class="subcategorias" id="sub5">
 <ul>
-<li>Axilas</li>
-<li>Bikini parcial/completo</li>
-<li>Pierna media/completa</li>
+<li>Axilas — $15.000</li>
+<li>Bikini parcial — $30.000</li>
+<li>Bikini completo — $50.000</li>
+<li>Media pierna — $30.000</li>
+<li>Pierna completa — $50.000</li>
 </ul>
 </div>
 </div>
 <div class="servicio-card">
-<img alt="Limpieza facial" src="Limpieza facial.png"/>
+    <img alt="Limpieza facial" 
+         src="Limpieza facial.png" 
+         class="img-servicio" 
+         data-popup="popup-limpieza"/>
 <h3>Limpieza facial</h3>
 <button class="btn-ver-mas" onclick="toggleSubcategorias('sub6')">Ver más ▼</button>
 <div class="subcategorias" id="sub6">
 <ul>
-<li>Limpieza básica</li>
-<li>Limpieza profunda</li>
+<li>Facial Glow Up → limpieza básica para una piel fresca y radiante — $70.000</li>
+<li>Facial Ion Glow → limpieza profunda con ionización, desintoxica y revitaliza — $90.000</li>
+<li>Facial Balance Skin → personalizada según tu tipo de piel (grasa, seca, mixta o sensible) — $70.000</li>
 </ul>
 </div>
 </div>
@@ -685,6 +799,136 @@ h3 {
   📅 Todos los servicios se realizan únicamente bajo agenda previa.<div>¡Agenda tu cita con anticipación!
 </div>
 </section>
+<!-- POPUP EXTENSIONES -->
+<div class="popup" id="popup-extensiones">
+<div class="efecto-brillo"></div>
+  <div class="popup-content">
+    <button class="cerrar-popup" onclick="cerrarPopup('popup-extensiones')">×</button>
+<img src="logo-cautiva.png" alt="Logo Cautiva" class="logo-popup">
+    <h2>👁️Cuidados de Pestañas – Extensiones</h2>
+
+    <div class="cuidados-texto">
+      <p>💦No mojes tus pestañas en las primeras 24 horas.<br>
+      <p>🙅‍♀️No frotar ni arrancar las pestañas.</p>
+      <p>🪮Peina suavemente con cepillito en las mañanas.</p>
+      <p>🔥Evita vapor, calor excesivo y maquillaje a prueba de agua.</p>
+      <p>🚫No uses productos aceitosos en la zona.</p>
+      <p>📅Programa retoque de 15 a 20 días.</p>
+    </div>
+
+<p class="mensaje-popup brillo-eslogan">
+      ✨Recuerda: Tu mirada <span class="resaltado-cautiva">cautiva</span> el mundo✨
+    </p>
+  </div>
+</div>
+
+<!-- POPUP ONDULADO -->
+<div class="popup" id="popup-ondulado">
+<div class="efecto-brillo"></div>
+  <div class="popup-content">
+    <button class="cerrar-popup" onclick="cerrarPopup('popup-ondulado')">×</button>
+<img src="logo-cautiva.png" alt="Logo Cautiva" class="logo-popup">
+    <h2>🌿Cuidados de Lifting de Pestañas</h2>
+    
+<div class="cuidados-texto">
+      <p>🎀Después, puedes usar máscara de pestañas a base de agua.</p>
+      <p>💦No mojar, no apliques pestañina, ni usar cremas aceitosas durante 24h.</p>
+      <p>🚫No expongas tus pestañas a calor excesivo (sauna, vapor).</p>
+      <p>💧Aplica sérum hidratante 2–3 veces por semana para fortalecerlas.</p>
+    </div>
+
+<p class="mensaje-popup brillo-eslogan">
+      ✨Recuerda: Tu mirada <span class="resaltado-cautiva">cautiva</span> el mundo✨
+    </p>
+  </div>
+</div>
+
+<!-- POPUP CEJAS -->
+<div class="popup" id="popup-cejas">
+<div class="efecto-brillo"></div>
+  <div class="popup-content">
+    <button class="cerrar-popup" onclick="cerrarPopup('popup-cejas')">×</button>
+<img src="logo-cautiva.png" alt="Logo Cautiva" class="logo-popup">
+    <h2>💖Cuidados de Cejas</h2>
+    
+<div class="cuidados-texto">
+      <p>💦Evita mojar o maquillar tus cejas durante las primeras 24 h.</p>
+      <p>☀️No expongas al sol ni a calor excesivo (sauna, vapor) las primeras 48 h.</p>
+      <p>🙅‍♀️No frotes ni uses productos con alcohol en la zona.</p>
+      <p>💆‍♀️Aplica productos hidratantes recomendados.</p>
+    </div>
+
+<p class="mensaje-popup brillo-eslogan">
+      ✨Recuerda: Tu mirada <span class="resaltado-cautiva">cautiva</span> el mundo✨
+    </p>
+  </div>
+</div>
+
+<!-- POPUP DEPILACIÓN FACIAL -->
+<div class="popup" id="popup-facial">
+<div class="efecto-brillo"></div>
+  <div class="popup-content">
+    <button class="cerrar-popup" onclick="cerrarPopup('popup-facial')">×</button>
+<img src="logo-cautiva.png" alt="Logo Cautiva" class="logo-popup">
+    <h2>🌸Cuidados de Depilación Facial</h2>
+    
+<div class="cuidados-texto">
+      <p>💄Evita maquillaje en el rostro el mismo día.</p>
+     <p>🚫No exponerte al sol, sauna o piscina por 24 h.</p>
+      <p>🙅‍♀️No rascar ni frotar la zona depilada.</p>
+      <p>☀️Usar protector solar.</p>
+      <p>🌸 Hidrata la piel con crema neutra o aloe vera.</p>
+    </div>
+
+<p class="mensaje-popup brillo-eslogan">
+      ✨Recuerda: Tu mirada <span class="resaltado-cautiva">cautiva</span> el mundo✨
+    </p>
+  </div>
+</div>
+
+<!-- POPUP DEPILACIÓN CORPORAL -->
+<div class="popup" id="popup-corporal">
+<div class="efecto-brillo"></div>
+  <div class="popup-content">
+    <button class="cerrar-popup" onclick="cerrarPopup('popup-corporal')">×</button>
+<img src="logo-cautiva.png" alt="Logo Cautiva" class="logo-popup">
+    <h2>✨Cuidados de Depilación Corporal</h2>
+    
+<div class="cuidados-texto">
+      <p>🚫No exponerte al sol, sauna o piscina por 24h.</p>
+      <p>👗Usa ropa cómoda y holgada.</p>
+      <p>🚫No uses perfumes ni desodorantes con alcohol en la zona depilada durante 24 h.</p>
+      <p>🙅‍♀️No rascar ni frotar la zona depilada.</p>
+      <p>💆‍♀️Mantén la piel hidratada con crema neutra.</p>
+    </div>
+
+<p class="mensaje-popup brillo-eslogan">
+      ✨Recuerda: Tu mirada <span class="resaltado-cautiva">cautiva</span> el mundo✨
+    </p>
+  </div>
+</div>
+
+<!-- POPUP LIMPIEZA FACIAL -->
+<div class="popup" id="popup-limpieza">
+<div class="efecto-brillo"></div>
+  <div class="popup-content">
+    <button class="cerrar-popup" onclick="cerrarPopup('popup-limpieza')">×</button>
+<img src="logo-cautiva.png" alt="Logo Cautiva" class="logo-popup">
+    <h2>💆‍♀️Cuidados de Limpieza Facial</h2>
+
+    <div class="cuidados-texto">
+      <p>🚫Evita maquillaje, sol directo y perfumes en el rostro durante 24h.</p>
+      <p>🚫Evitar sauna y calor excesivo.</p>
+      <p>☀️Usa protector solar todos los días.</p>
+      <p>🧴No exfolies ni uses ácidos durante 3 días.</p>      
+       <p>🌸Hidrata la piel con productos suaves y adecuados para tu tipo de piel.</p>
+    </div>
+
+<p class="mensaje-popup brillo-eslogan">
+      ✨Recuerda: Tu mirada <span class="resaltado-cautiva">cautiva</span> el mundo✨
+    </p>
+  </div>
+</div>
 
 <section id="productos">
 <div class="titulo-seccion">Productos</div>
@@ -745,11 +989,11 @@ h3 {
   <div class="popup" id="popup-gracias">
     <div class="efecto-brillo"></div>
     <div class="popup-content">
-      <button class="cerrar-popup" onclick="cerrarPopup()">×</button>
+      <button class="cerrar-popup" onclick="cerrarPopup('popup-gracias')">×</button>
       <img src="logo-cautiva.png" alt="Logo Cautiva" class="logo-popup">
       <p class="mensaje-popup">
         ✅ ¡Gracias! Te contactaremos pronto.<br><br>
-        ✨ Mientras tanto, recuerda: tu mirada <span class="resaltado-cautiva">cautiva</span> el mundo.
+        ✨Mientras tanto, recuerda: tu mirada <span class="resaltado-cautiva">cautiva</span> el mundo✨
       </p>
     </div>
   </div>
@@ -757,14 +1001,15 @@ h3 {
 <footer>
     © 2025 Cautiva - Todos los derechos reservados.
   </footer>
-<!-- Botón flotante de WhatsApp -->
-<a class="whatsapp-button" href="https://wa.me/573025683662?text=Hola%2C%20quiero%20agendar%20una%20cita%20con%20Cautiva" target="_blank" title="Escríbenos por WhatsApp">
-  💬 Contáctanos
-</a>
 
-
-<a class="whatsapp-button" href="https://wa.me/573025683662?text=Hola%2C%20quiero%20agendar%20una%20cita%20con%20Cautiva" target="_blank" title="Escríbenos por WhatsApp">
-<img alt="WhatsApp" src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" style="vertical-align: middle; width: 24px; height: 24px; margin-right: 8px;"/>
+<!-- Botón flotante de WhatsApp (único) -->
+<a class="whatsapp-button"
+   href="https://wa.me/573203839660?text=%C2%A1Hola!%20Quiero%20agendar%20mi%20cita%20en%20Cautiva"
+   target="_blank" title="Escríbenos por WhatsApp">
+  <!-- Mantén el logo original (puedes conservar el que ya usabas) -->
+  <img class="icono-whatsapp"
+       src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+       alt="WhatsApp">
   Agenda tu cita
 </a>
 
@@ -852,9 +1097,31 @@ h3 {
     }
   });
 
-  function cerrarPopup() {
-    popup.style.display = 'none';
-  }
+  function cerrarPopup(id) {
+  document.getElementById(id).style.display = 'none';
+}
+// --- POPUPS DE CUIDADOS ---
+// Abrir popup al hacer clic en cada imagen
+document.querySelectorAll('.img-servicio').forEach(img => {
+  img.addEventListener('click', () => {
+    const popupId = img.getAttribute('data-popup');
+    document.getElementById(popupId).style.display = 'flex';
+  });
+});
+
+// Cerrar popup desde el botón "×"
+function cerrarPopup(id) {
+  document.getElementById(id).style.display = 'none';
+}
+
+// Cerrar popup si hacen clic en el fondo oscuro
+document.querySelectorAll('.popup').forEach(popup => {
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) {
+      popup.style.display = 'none';
+    }
+  });
+});
 </script>
 
 </body>
